@@ -91,3 +91,6 @@ An example of a single log file is like:
 python create_tables.py 
 python etl.py 
 ```
+
+## Overview of the Final Table
+<img src='images/songplays_table.PNG'>
