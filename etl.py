@@ -67,6 +67,9 @@ def process_log_file(cur, filepath):
         # get songid and artistid from song and artist tables
         cur.execute(song_select, (row.song, row.artist, row.length))
         results = cur.fetchone()
+        # fetchone(): Fetch the next row of a query result set, returning a single tuple, or None when no more data is available:
+        # fetchmany([num]): Fetch the next set of rows of a query result, returning a list of tuples.
+        # fetchall(): Fetch all (remaining) rows of a query result, returning them as a list of tuples. 
         
         if results:
             songid, artistid = results
