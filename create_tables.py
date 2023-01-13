@@ -10,9 +10,17 @@ def create_database():
     """
     
     # connect to default database
-    conn = psycopg2.connect("host=127.0.0.1 dbname=postgres user=postgres password=123456 port=5432")
-    conn.set_session(autocommit=True)
+    conn = psycopg2.connect("host=127.0.0.1 dbname=postgres user=postgres password=123456 port=5432") # creates a new database session and returns a new connection instance
+    # The class connection encapsulates a database session. It allows to: 
+    # (1) create new cursor instances using the cursor() method to execute database commands and queries,
+    # (2) terminate transactions using the methods commit() or rollback().
+    
+    conn.set_session(autocommit=True)  # commit: Make the changes to the database persistent
+    
     cur = conn.cursor()
+    # The class cursor allows interaction with the database:
+    # (1) send commands to the database using methods such as execute() and executemany(),
+    # (2) retrieve data from the database by iteration or using methods such as fetchone(), fetchmany(), fetchall().
     
     # create sparkify database with UTF8 encoding
     cur.execute("DROP DATABASE IF EXISTS sparkifydb")
